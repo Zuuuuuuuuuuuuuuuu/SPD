@@ -4,6 +4,7 @@
 #include "RandomNumberGenerator.hh"
 #include "johnson.hh"
 #include "bruteforce.hh"
+#include "bnb.hh"
 
 
 int main()
@@ -29,5 +30,11 @@ int main()
     class_brute.init_brute(set);
     class_parameters.print(class_brute.bestpi);
     cout << "Cmax: " << class_brute.ub << endl;
+
+    bnbs class_bnb;
+    cout << "Test bnb" << endl;
+    class_bnb.init_bnb(set);
+    class_parameters.print(class_bnb.best_pi);
+    cout << "Cmax: " << class_bnb.ub << endl;
 
 }
