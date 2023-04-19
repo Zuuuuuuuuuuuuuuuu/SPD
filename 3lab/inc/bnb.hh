@@ -11,8 +11,8 @@ class bnbs : public johnsons
         int ub;   // wartość górnego ograniczenia; uboga wersja algorytmu
         int lb;
         vector<parameters> best_pi;
-        int count_lb0(vector<parameters> pi, vector<parameters> N, vector<parameters> set);
-        //int count_lb(vector<parameters> N, vector<parameters> pi);
+        int count_lb0(vector<parameters> pi, vector<parameters> N);
+        int count_lb3(vector<parameters> N, vector<parameters> pi);
         vector<parameters> init_bnb(vector<parameters> set);
         void bnb(int j, vector<parameters> N, vector<parameters> pi, vector<parameters> set);
         
