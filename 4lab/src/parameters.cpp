@@ -8,7 +8,6 @@ void parameters::write_generated_numbers(vector<parameters> &set)
     for (int j=0; j<NUM_ELEMENTS; j++)
     {
         set[j].j = j+1;                       
-        sum = sum + set[j].j;
     }
     for (int j=0; j<NUM_ELEMENTS; j++)
     {
@@ -18,6 +17,9 @@ void parameters::write_generated_numbers(vector<parameters> &set)
     for (int j=0; j<NUM_ELEMENTS; j++)
     {
         set[j].w = rng.nextInt(LOW, 9);                       
+    }
+    for (int j=0; j<NUM_ELEMENTS; j++)
+    {                      
         set[j].d = rng.nextInt(LOW, sum); 
     }
 }
@@ -43,10 +45,17 @@ int parameters::evaluate(const vector<parameters> set)
     int C [NUM_ELEMENTS];
     int T [NUM_ELEMENTS];
     int delay = 0;
-
     S[0] = 0;
     C[0] = set[0].p;
-    T[0] = 0;
+    if (C[0] > set[0].d)
+    {
+        T[0] = C[0] - set[0].d;
+    }
+    else
+    {
+        T[0] = 0;
+    }
+    delay = delay + (T[0]*set[0].w); 
     for(int j = 1; j < NUM_ELEMENTS; j++)
     {
         S[j] = C[j-1];
@@ -61,6 +70,7 @@ int parameters::evaluate(const vector<parameters> set)
         }
         delay = delay + (T[j]*set[j].w); 
     }
+    /*
     cout << "S: " << endl;
     for (int j = 0; j < NUM_ELEMENTS; j++)
     {
@@ -77,6 +87,7 @@ int parameters::evaluate(const vector<parameters> set)
         cout << T[j] << "\t";
     }
     cout << endl;
+    */
     return delay;
 }
 
