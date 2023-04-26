@@ -7,7 +7,6 @@
 #define LOW 1
 #define HIGH 29
 #define NUM_ELEMENTS 8
-#define NUM_MACHINES 2
 
 using namespace std;
 
@@ -15,9 +14,9 @@ class parameters : public RandomNumberGenerator
 {
     public:
         int j;
-        vector<int> p;
-        // int Cmax;
-
+        int w;
+        int d;
+        int p;
         parameters() : RandomNumberGenerator(SEED) {}   //konstruktor
         void write_generated_numbers(vector<parameters> &set);
         void print(const vector<parameters> set);

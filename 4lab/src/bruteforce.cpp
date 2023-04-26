@@ -6,7 +6,7 @@ vector<parameters> bruteforce::init_brute(vector<parameters> set)
     vector<parameters> N;
     vector<parameters> pi;
 
-    ub = 1000-000 
+    ub = 1000000;
 
     for (int i = 0; i < set.size(); i++)
     {
