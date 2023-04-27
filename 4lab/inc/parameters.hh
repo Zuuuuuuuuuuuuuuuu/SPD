@@ -21,6 +21,7 @@ class parameters : public RandomNumberGenerator
         void write_generated_numbers(vector<parameters> &set);
         void print(const vector<parameters> set);
         int evaluate(const vector<parameters> set);
+        vector<parameters> sort(vector<parameters> set);
 
 };
 

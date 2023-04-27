@@ -91,6 +91,25 @@ int parameters::evaluate(const vector<parameters> set)
     return delay;
 }
 
+vector<parameters> parameters::sort(vector<parameters> set)
+{
+    int size = set.size();
+    while(size > 1)
+    {
+        for(int i = 0; i < set.size() - 1; i++)
+        {
+            if(set[i].d > set[i+1].d)
+            {
+                parameters temp = set[i];
+                set[i] = set[i+1];
+                set[i+1] = temp;
+            }
+        }
+        size--;
+    }
+    return set;
+}
+
 //wypisywanie elementów wektora 
 template<typename T> ostream & operator<<(ostream &stream, const vector<T> vector)  
 {     
