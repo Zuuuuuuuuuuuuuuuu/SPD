@@ -6,7 +6,7 @@ vector<parameters> bruteforce::init_brute(vector<parameters> set)
     vector<parameters> N;
     vector<parameters> pi;
 
-    ub = 1000; 
+    ub = 1000000;
 
     for (int i = 0; i < set.size(); i++)
     {
@@ -37,10 +37,10 @@ void bruteforce::brute(int j, vector<parameters> N, vector<parameters> pi)
     }
     else 
     {
-        int Cmax = evaluate(pi);
-        if (Cmax < ub)
+        int DelayMin = evaluate(pi);
+        if (DelayMin < ub)
         {
-            ub = Cmax;
+            ub = DelayMin;
             bestpi = pi;  
         }
     }

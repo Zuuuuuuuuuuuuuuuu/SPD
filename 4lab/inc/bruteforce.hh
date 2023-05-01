@@ -2,10 +2,9 @@
 #include<climits>
 #include<vector>
 #include "parameters.hh"
-#include "johnson.hh"
 using namespace std;
 
-class bruteforce : public johnsons
+class bruteforce : public parameters
 {
     public:
         int ub; 
