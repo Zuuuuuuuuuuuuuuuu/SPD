@@ -1,28 +1,30 @@
-#pragma once
-#include <vector>
-#include <iostream>
-#include "RandomNumberGenerator.hh"
-
-#define SEED 1
-#define LOW 1
-#define HIGH 29
-#define NUM_ELEMENTS 8
-#define NUM_MACHINES 2
-
-using namespace std;
-
-class parameters : public RandomNumberGenerator
+class operation
 {
-    public:
-        int j;
-        vector<int> p;
-        // int Cmax;
+public:
 
-        parameters() : RandomNumberGenerator(SEED) {}   //konstruktor
-        void write_generated_numbers(vector<parameters> &set);
-        void print(const vector<parameters> set);
-        int evaluate(const vector<parameters> set);
+    int j; //numer zadania
+    int p; //czas trwania
+    int C; //czas zakończenia
 
+    operation(int j, int p);
 };
 
-template<typename T> ostream & operator<<(ostream &stream, const vector<T> vector);
+operation::operation(int j, int p) : j(j), p(p) {}
+
+class parameter
+{
+public:
+    std::vector<operation>op;
+    void addoperation(operation tmp);
+    int last();
+};
+
+void parameter::addoperation(operation tmp) 
+{
+    op.push_back(tmp);
+}
+
+int parameter::last() 
+{
+    return this->op.size() - 1;
+}
